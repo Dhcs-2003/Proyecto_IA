@@ -2,11 +2,7 @@
 open System.IO
 open System.Collections.Generic
 
-// ==========================================
-// MÓDULO CSP (Basado en la plantilla del PDF)
-// ==========================================
 module CSP =
-    // Definición de tipos basada en la plantilla [cite: 47-55]
     type Variable = string
     type Valor = string
     
@@ -22,7 +18,6 @@ module CSP =
         Variables : Variable list
         Dominios : Map<Variable, Valor list>
         Restricciones : Restriccion list
-        // Mapa de adyacencias para búsqueda rápida (Variable -> Lista de vecinos)
         Vecinos : Map<Variable, Variable list> 
     }
 
@@ -61,12 +56,6 @@ module CSP =
             map2
         ) initMap
 
-// ==========================================
-// LECTURA DE ARCHIVOS [cite: 66-115]
-// ==========================================
-// ==========================================
-// LECTURA DE ARCHIVOS (CORREGIDO)
-// ==========================================
 module Parser =
     open CSP
 
@@ -121,7 +110,6 @@ module Solver =
 
     // --- Heurísticas ---
 
-    // MRV: Mínimos Valores Restantes [cite: 45]
     // Elige la variable con menos valores legales en su dominio
     let heuristicaMRV (varsNoAsignadas: Variable list) (asignacion: Asignacion) (csp: Csp) =
         varsNoAsignadas 
@@ -132,7 +120,6 @@ module Solver =
             |> List.length
         )
 
-    // Grado Heurístico (Degree Heuristic) [cite: 45]
     // Se usa para desempatar MRV: elige la variable involucrada en más restricciones con otras variables NO asignadas
     let heuristicaGrado (vars: Variable list) (asignacion: Asignacion) (csp: Csp) =
         vars 
@@ -193,7 +180,7 @@ module Solver =
                 | [] -> None // Falla, backtrack
                 | valor :: resto ->
                     if esConsistente variableAProcesar valor asignacion csp then
-                        contador := !contador + 1 // Contamos nodo procesado/asignación [cite: 132]
+                        contador := !contador + 1
                         let nuevaAsignacion = asignacion.Add(variableAProcesar, valor)
                         let resultado = backtracking nuevaAsignacion csp contador usarHeuristicas
                         match resultado with
@@ -221,9 +208,7 @@ module Solver =
             Metodo = nombreMetodo
         }
 
-// ==========================================
-// PROGRAMA PRINCIPAL [cite: 148-154]
-// ==========================================
+
 module Main =
     open Parser
     open CSP
@@ -246,7 +231,6 @@ module Main =
                 let csp = leerArchivo rutaArchivo
                 let resultado = resolver csp modo
 
-                // Salida formateada según PDF [cite: 119-144]
                 printfn "Metodo de Solucion = %s" resultado.Metodo
                 printfn "Existe solucion"
                 if resultado.Exito then printfn "Verdadero" else printfn "Falso"
