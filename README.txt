@@ -1,32 +1,26 @@
-=============================================================================
-PROYECTO 2: PROBLEMA DEL COLOREO DEL MAPA (CSP)
+
+Proyecto 2:  Problema del Coloreo del Mapa
 Inteligencia Artificial I - Universidad Politécnica de San Luis Potosí
-=============================================================================
-
-AUTOR: Emmanuel Hernández Méndez
-MATRÍCULA: 179169
-FECHA: 28 de Noviembre de 2025
-
+Profesor: Dr. Omar Montano Rivas
 -----------------------------------------------------------------------------
-1. DESCRIPCIÓN
+Matrícula: 178378
+Autor: Daniel Humberto Cano Sánchez
+Fecha de entrega: 28 de Noviembre de 2025
+
+1. Descripción
 -----------------------------------------------------------------------------
-Este programa resuelve el problema de satisfacción de restricciones (PSR) para
+Este programa resuelve el problema de satisfacción de restricciones para
 el coloreo de mapas de México. Implementa:
 - Algoritmo de Vuelta Atrás (Backtracking).
 - Heurísticas: Mínimos Valores Restantes (MRV) y Grado Heurístico.
 
-El software ha sido desarrollado en F# utilizando la plataforma .NET moderna
-(versión 10.0), lo cual ofrece mayor rendimiento y compatibilidad que las 
-versiones antiguas de Mono.
 
------------------------------------------------------------------------------
-2. REQUERIMIENTOS
+2. Requerimientos
 -----------------------------------------------------------------------------
 - .NET SDK (Versión 8.0, 9.0 o 10.0).
 - Compatible con Windows, Linux y macOS.
 
------------------------------------------------------------------------------
-3. INSTRUCCIONES PARA GENERAR EL EJECUTABLE (.EXE)
+3. Instrucciones para generar ejecutable
 -----------------------------------------------------------------------------
 Para compilar el código fuente y generar un ejecutable optimizado (Release),
 abra una terminal en la carpeta del proyecto y ejecute:
@@ -41,8 +35,8 @@ Esto creará el archivo 'ColoreoMapa.exe' en la carpeta:
 
 **NOTA 2: Este paso solo es necesario si no se encuentra el
         archivo en la ruta /bin/Release/net10.0/publish/
------------------------------------------------------------------------------
-4. EJECUCIÓN
+
+4. Ejecución del programa
 -----------------------------------------------------------------------------
 Existen dos formas de ejecutar el programa:
 
@@ -59,18 +53,16 @@ OPCIÓN B (Ejecutar el .exe generado en el paso 3):
 **NOTA: Este paso solo es necesario si no se encuentra el/los
         archivo(s) en la ruta /bin/Release/net10.0/publish/
 
------------------------------------------------------------------------------
-5. PARÁMETROS
+5. Parámetros
 -----------------------------------------------------------------------------
 El <modo> puede ser:
     - simple        (Para Backtracking estándar)
     - heuristicas   (Para Backtracking con MRV y Grado)
 
-EJEMPLO:
+Ejemplo:
     dotnet run -- mexico_4_colores.txt heuristicas
 
------------------------------------------------------------------------------
-ARCHIVOS INCLUIDOS
+Archivos necesarios
 -----------------------------------------------------------------------------
 - Código fuente (Program.fs)
 - Archivo de proyecto (ColoreoMapa.fsproj)
